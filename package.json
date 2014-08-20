@@ -1,0 +1,8 @@
+{
+  "name": "Helix",
+  "version": "0.0.1",
+  "devDependencies": {
+    "browserify": "^5.9.1",
+    "coffeeify": "^0.7.0"
+  }
+}
