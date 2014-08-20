@@ -1,4 +1,4 @@
-###
+/*
   Returns a throttled version of a function that is called on first fire and,
   at most, once for each interval after.
 
@@ -7,18 +7,20 @@
                              func is called at most once.
 
   @return {Function} Throttled version of function func.
-###
-exports.throttle = (func, interval) ->
-  throttleTimer = null
-  firstRun = true
+*/
+exports.throttle = function (func, interval) {
+  var throttleTimer = null,
+    firstRun = true;
 
-  return ->
-    if firstRun
-      func()
-      firstRun = false
-    else if throttleTimer is null
-      throttleTimer = window.setTimeout(->
-        func()
-        throttleTimer = null
-      , interval)
-    return
+  return function () {
+    if (firstRun) {
+      func();
+      firstRun = false;
+    } else if (throttleTimer === null) {
+      throttleTimer = window.setTimeout(function () {
+        func();
+        throttleTimer = null;
+      }, interval);
+    }
+  }
+};

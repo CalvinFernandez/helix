@@ -1,4 +1,4 @@
-###
+/*
   Return the value of object[key]. If object[key] does not exist, check if
   fallbackObject does and return fallbackObject[key]. If object and
   fallbackObject do not exist, return undefined.
@@ -11,8 +11,12 @@
 
   @return {Anything} Any valid value that can be pointed to by object[key]
                      or fallbackObject[key].
-###
-exports.getValue = (object, key, fallbackObject) ->
-  unless (value = object[key])?
-    value = fallbackObject[key] if fallbackObject?
-  return value
+*/
+exports.getValue = function (object, key, fallbackObject) {
+  if ((value = object[key]) == null) {
+    if (fallbackObject != null) {
+      value = fallbackObject[key];
+    }
+  }
+  return value;
+};
