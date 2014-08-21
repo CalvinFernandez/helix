@@ -45,8 +45,6 @@ function Helix($scrollContainer, options) {
   this.willBeRemovedFromDOM = init.option(options, 'willBeRemovedFromDOM');
   this.resizeThrottle = init.option(options, 'resizeThrottle');
   this.scrollThrottle = init.option(options, 'scrollThrottle');
-  this.numElementsInScrollViewport = init.option(options,
-      'numElementsInScrollViewport');
 
   this.cacheOptions = init.option(options, 'cache');
   if (this.cacheOptions) {

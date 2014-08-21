@@ -80,9 +80,6 @@ These requirements must be met by the consumer of Helix:
     resizeThrottle: 200,
     scrollThrottle: 200,
 
-    // Number of elements in the scroll viewport. Defaults to 20.
-    numElementsInScrollViewport: 20,
-
     // If you know that the height of each element will be the same, supplying
     // this option removes the need for a cache or calling $.height on each
     // element. By default, Helix does not assume element heights are static.
