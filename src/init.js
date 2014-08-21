@@ -4,7 +4,6 @@ var Cache = require('./cache'),
 
 var DEFAULT_INIT_OPTIONS = {
     cache: false,
-    numElementsInScrollViewport: 20,
     resizeThrottle: 200,
     scrollThrottle: 200,
   },
@@ -63,11 +62,18 @@ exports.heightCache = function (instance) {
 exports.listItems = function (instance) {
   var listItemString = '<li class="' + LIST_ITEM_CLASS + '"></li>',
     $scrollContainer = instance.$scrollContainer,
-    numElements = instance.numElementsInScrollViewport,
+    viewportHeight = instance.scrollHeight,
+    $listItem = $(listItemString),
+    numElements,
+    listItemDefaultHeight,
     itemIndex;
 
-  $scrollContainer.html('')
-  for (itemIndex = 0; itemIndex < numElements; itemIndex++) {
+  $scrollContainer.html('');
+  $scrollContainer.append($listItem);
+  listItemDefaultHeight = $listItem.height();
+  numElements = Math.ceil(viewportHeight / listItemDefaultHeight);
+
+  for (itemIndex = 0; itemIndex < numElements - 1; itemIndex++) {
     $scrollContainer.append(listItemString);
   }
 };
